@@ -118,5 +118,7 @@ def playfair_encryption(plaintext_input='temui ibu nanti malam', cipherkey_input
     ciphertext = ''.join(cipher_list)
     return ciphertext
 
-# MAIN PROGRAM
+## DECRYPTION FUNCTIONS
+
+## MAIN PROGRAM
 print(playfair_encryption())
