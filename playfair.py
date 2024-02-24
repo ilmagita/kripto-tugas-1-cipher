@@ -5,7 +5,8 @@ from functionList import integer_to_letter as itl
 from math import ceil
 from functionList import clean_letter
 
-# FUNGSI TAMBAHAN
+## ENCRYPTION FUNCTIONS
+
 def str_to_playfair_key(string, ch_to_remove='J'):
     """
     Function to arrange a string of a cipherkey to the Playfair square.
@@ -77,7 +78,7 @@ def find_el_in_matrix(matrix, el):
                 return i, j
     return None
 
-def playfair_encryption(playfair_key, bigram):
+def playfair_encrypt_bigram(playfair_key, bigram):
     first_el_position = find_el_in_matrix(playfair_key, bigram[0])
     second_el_position = find_el_in_matrix(playfair_key, bigram[1])
 
@@ -105,17 +106,17 @@ def playfair_encryption(playfair_key, bigram):
 
         return cipher_bigram
 
-def playfair_ciphertext(plaintext_input='temui ibu nanti malam', cipherkey_input='jalan ganesha sepuluh'):
+def playfair_encryption(plaintext_input='temui ibu nanti malam', cipherkey_input='jalan ganesha sepuluh'):
     plaintext_bigram_list = str_to_playfair_bigram_list(plaintext_input)
     cipherkey_matrix = str_to_playfair_key(cipherkey_input)
 
     cipher_list = []
 
     for i in range(len(plaintext_bigram_list)):
-        cipher_list.append(playfair_encryption(cipherkey_matrix, plaintext_bigram_list[i]))
+        cipher_list.append(playfair_encrypt_bigram(cipherkey_matrix, plaintext_bigram_list[i]))
 
     ciphertext = ''.join(cipher_list)
     return ciphertext
 
-# PROGRAM
-print(playfair_ciphertext())
+# MAIN PROGRAM
+print(playfair_encryption())
