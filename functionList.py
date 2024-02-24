@@ -11,6 +11,3 @@ def clean_letter(str):
             if (65 <= ord(char) <= 90) or (97 <= ord(char) <= 122):
                 result += char
     return result
-
-a = " hfuiesh487309 4939023!"
-print(clean_letter(a))
