@@ -9,19 +9,20 @@ plaintext = input('Masukkan plaintext: ')
 input_key = input('Masukkan key: ')
 
 plaintext = clean_letter(plaintext)
+plaintext = plaintext.upper()
 
 if len(input_key) < len(plaintext):
     key = ''
     j = 0
     while len(key) < len(plaintext):
-        key = key + input_key[j]
+        key = key + input_key[j].upper()
 
         if j == len(input_key) - 1:
             j = 0
         else:
             j += 1
 else:
-    key = input_key
+    key = input_key.upper()
 
 plaintext_idx = [0 for i in range(len(plaintext))]
 key_idx = [0 for i in range(len(plaintext))]
