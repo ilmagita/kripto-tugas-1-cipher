@@ -1,20 +1,9 @@
-def letter_to_integer(letter):
-    return ord(letter) - ord('A')
-
-def integer_to_letter(integer):
-    return chr(integer + 65)
-
-def clear_spaces(str):
-    result = ""
-    for char in str:
-        if char != " ":
-            result += char
-    return result
+from functionList import *
 
 def encrypt_vigenere(plainText,inputKey):
     key = ""
     cipherText = ""
-    plainText = clear_spaces(plainText)
+    plainText = clean_letter(plainText)
     plainText = plainText.upper()
     inputKey = inputKey.upper()
     
@@ -29,7 +18,7 @@ def encrypt_vigenere(plainText,inputKey):
 def decrypt_vigenere(cipherText,inputKey):
     key = ""
     plainText = ""
-    cipherText = clear_spaces(cipherText)
+    cipherText = clean_letter(cipherText)
     cipherText = cipherText.upper()
     inputKey = inputKey.upper()
     
@@ -44,7 +33,7 @@ def decrypt_vigenere(cipherText,inputKey):
 def encrypt_transposition(plainText,columnKey):
     matrix = []
     cipherText = ""
-    plainText = clear_spaces(plainText)
+    plainText = clean_letter(plainText)
     
     for i in range(0, len(plainText), columnKey):
         substr = plainText[i:i+columnKey]
@@ -62,7 +51,7 @@ def encrypt_transposition(plainText,columnKey):
 def decrypt_transposition(cipherText,columnKey):
     matrix = []
     plainText = ""
-    cipherText = clear_spaces(cipherText)
+    cipherText = clean_letter(cipherText)
     decryptKey = len(cipherText)//columnKey
     
     for i in range(0, len(cipherText), decryptKey):
@@ -85,7 +74,7 @@ def decrypt_product(cipherText, vignereKey, tranposisitonKey):
     plainText = decrypt_vigenere(decrypt_transposition(cipherText,tranposisitonKey),vignereKey)
     return plainText
 
-'''
+
 plainText = "hello world"
 inputKey = "sony"
 columnKey = 4
@@ -95,6 +84,7 @@ c = encrypt_transposition(a,columnKey)
 d = decrypt_transposition(c,columnKey)
 b = decrypt_vigenere(d,inputKey)
 
+print(a)
 print(c)
 print(b)
 
@@ -104,4 +94,4 @@ f = decrypt_product(e,inputKey,columnKey)
 
 print(e)
 print(f)
-'''
+

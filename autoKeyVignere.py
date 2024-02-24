@@ -1,18 +1,7 @@
-def letter_to_integer(letter):
-    return ord(letter) - ord('A')
-
-def integer_to_letter(integer):
-    return chr(integer + 65)
-
-def clear_spaces(str):
-    result = ""
-    for char in str:
-        if char != " ":
-            result += char
-    return result
+from functionList import *
 
 def encrypt_autoKeyVignere(plainText,inputKey):
-    plainText = clear_spaces(plainText)
+    plainText = clean_letter(plainText)
     plainText = plainText.upper()
     inputKey = inputKey.upper()
     
@@ -29,7 +18,7 @@ def encrypt_autoKeyVignere(plainText,inputKey):
     return(cipherText)
 
 def decrypt_autoKeyVigenere(cipherText, inputKey):
-    cipherText = clear_spaces(cipherText)
+    cipherText = clean_letter(cipherText)
     cipherText = cipherText.upper()
     inputKey = inputKey.upper()
 
@@ -46,7 +35,7 @@ def decrypt_autoKeyVigenere(cipherText, inputKey):
     return(plainText)
     
     
-'''
+
 plainText = 'negara penghasil minyak mentah di dunia'
 key = 'INDO'
 
@@ -54,4 +43,4 @@ a = encrypt_autoKeyVignere(plainText,key)
 b = decrypt_autoKeyVigenere(a,key)
 print(a)    
 print(b)
-'''
+
