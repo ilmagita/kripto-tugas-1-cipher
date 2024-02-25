@@ -1,4 +1,4 @@
-from functionList import *
+from .functionList import *
 
 def encrypt_extended_vigenere(plainText,inputKey):
     key = ""
@@ -25,16 +25,17 @@ def decrypt_extended_vigenere(cipherText,inputKey):
     return(plainText)
 
 
-'''
-a = read_binary_file('foto.png')
-a = encrypt_extended_vigenere(a,'sony')
+
+#a = read_binary_file('foto.png')
+a = encrypt_extended_vigenere('thisplaintext','sony')
 b = decrypt_extended_vigenere(a,'sony')
 
 
 
+print(a)
+print(b)
 
+#save_file(a,'encrypted_foto.png')
+#save_file(b,'decrypted_foto.png')
 
-save_file(a,'encrypted_foto.png')
-save_file(b,'decrypted_foto.png')
-'''
 
