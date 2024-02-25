@@ -5,8 +5,7 @@ from functionList import integer_to_letter as itl
 from math import ceil
 from functionList import clean_letter
 
-## ENCRYPTION FUNCTIONS
-
+## HELPER FUNCTIONS
 def str_to_playfair_key(string, ch_to_remove='J'):
     """
     Function to arrange a string of a cipherkey to the Playfair square.
@@ -78,6 +77,7 @@ def find_el_in_matrix(matrix, el):
                 return i, j
     return None
 
+## ENCRYPTION FUNCTIONS
 def playfair_encrypt_bigram(playfair_key, bigram):
     first_el_position = find_el_in_matrix(playfair_key, bigram[0])
     second_el_position = find_el_in_matrix(playfair_key, bigram[1])
@@ -119,6 +119,46 @@ def playfair_encryption(plaintext_input='temui ibu nanti malam', cipherkey_input
     return ciphertext
 
 ## DECRYPTION FUNCTIONS
+def playfair_decrypt_bigram(playfair_key, bigram):
+    first_el_position = find_el_in_matrix(playfair_key, bigram[0])
+    second_el_position = find_el_in_matrix(playfair_key, bigram[1])
+
+    if first_el_position is not None and second_el_position is not None:
+        first_el_row, first_el_col = first_el_position
+        second_el_row, second_el_col = second_el_position
+
+        cipher_bigram = ['', '']
+
+        if (first_el_row == second_el_row):
+            # if both elements in same row
+            cipher_bigram[0] = playfair_key[first_el_row][(first_el_col - 1) % 5]
+            cipher_bigram[1] = playfair_key[second_el_row][(second_el_col - 1) % 5]
+
+        elif (first_el_col == second_el_col):
+            # if both elements in same column
+            cipher_bigram[0] = playfair_key[(first_el_row - 1) % 5][first_el_col]
+            cipher_bigram[1] = playfair_key[(second_el_row - 1) % 5][second_el_col]
+
+        else:
+            cipher_bigram[0] = playfair_key[first_el_row][second_el_col]
+            cipher_bigram[1] = playfair_key[second_el_row][first_el_col]
+
+        cipher_bigram = ''.join(cipher_bigram)
+
+        return cipher_bigram
+    
+def playfair_decryption(plaintext_input='ZBRSFYKUPGLGRKVSNLQV', cipherkey_input='jalan ganesha sepuluh'):
+    plaintext_bigram_list = str_to_playfair_bigram_list(plaintext_input)
+    cipherkey_matrix = str_to_playfair_key(cipherkey_input)
+
+    cipher_list = []
+
+    for i in range(len(plaintext_bigram_list)):
+        cipher_list.append(playfair_decrypt_bigram(cipherkey_matrix, plaintext_bigram_list[i]))
+
+    ciphertext = ''.join(cipher_list)
+    return ciphertext
 
 ## MAIN PROGRAM
 print(playfair_encryption())
+print(playfair_decryption())
