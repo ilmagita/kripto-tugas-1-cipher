@@ -35,7 +35,7 @@ def decrypt_autoKeyVigenere(cipherText, inputKey):
     return(plainText)
     
     
-
+""""
 plainText = 'negara penghasil minyak mentah di dunia'
 key = 'INDO'
 
@@ -43,4 +43,6 @@ a = encrypt_autoKeyVignere(plainText,key)
 b = decrypt_autoKeyVigenere(a,key)
 print(a)    
 print(b)
+save_file(a,'tugas.txt')
+"""
 

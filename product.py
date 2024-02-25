@@ -75,6 +75,7 @@ def decrypt_product(cipherText, vignereKey, tranposisitonKey):
     return plainText
 
 
+"""
 plainText = "hello world"
 inputKey = "sony"
 columnKey = 4
@@ -94,4 +95,6 @@ f = decrypt_product(e,inputKey,columnKey)
 
 print(e)
 print(f)
+"""
+
 
