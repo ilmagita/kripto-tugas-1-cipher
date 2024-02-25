@@ -191,7 +191,7 @@
      </font>
     </property>
     <property name="text">
-     <string>Vigenere Cypher Encryption and Decryption</string>
+     <string>Playfair Cypher Encryption and Decryption</string>
     </property>
    </widget>
   </widget>
