@@ -1,6 +1,7 @@
 ## EXTENDED VIGENRE APP GUI
 
 ## IMPORTS
+import os
 import sys
 from PyQt5.QtWidgets import (
      QApplication, QMainWindow, QPushButton, QPlainTextEdit, QFileDialog, QMessageBox
@@ -36,8 +37,6 @@ class MainWindow(QMainWindow):
         # Open file dialog
         file_dialog = QFileDialog(self)
         filename, _ = file_dialog.getOpenFileName(self, "Open File")
-    
-
 
         if filename:
             # Read the file content
@@ -47,10 +46,12 @@ class MainWindow(QMainWindow):
             # Set the content to the text box
             self.input_box.setPlainText(contents)
 
+            # Set the text box to file name
+            self.file_name_box.setText(os.path.basename(filename))
+
             # Close file dialog
             file_dialog.reject()
             file.close()
-            
 
 
     def on_encrypt_button_clicked(self):
@@ -68,14 +69,16 @@ class MainWindow(QMainWindow):
         self.output_box.setPlainText(output)
 
     def on_save_button_clicked(self):
+        filename_full = self.file_name_box.text()
+        filename_ori = filename_full[:-4]
+        filename_type = filename_full[-4:]
 
-        
         output_text = self.output_box.toPlainText()
-        output = save_file(output_text, 'output/output.txt')
+        output = save_file(output_text, f'output/{filename_ori}_encrypted{filename_type}')
 
         msg_box = QMessageBox()
         msg_box.setWindowTitle('Output Saved as File')
-        msg_box.setText('File saved as output.txt in output folder.')
+        msg_box.setText(f'File saved as {filename_ori}_encrypted{filename_type}in output folder.')
         msg_box.exec_()
 
 ## GUI PROGRAM
