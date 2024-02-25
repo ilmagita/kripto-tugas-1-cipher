@@ -1,8 +1,8 @@
 ## VIIGENERE CYPHER
 
-from functionList import letter_to_integer as lti
-from functionList import integer_to_letter as itl
-from functionList import clean_letter
+from .functionList import letter_to_integer as lti
+from .functionList import integer_to_letter as itl
+from .functionList import clean_letter
 from math import gcd
 
 ## HELPER FUNCTIONS
@@ -58,7 +58,7 @@ def affine_decryption(ciphertext, m, b):
 
     # check if m and 26 (alphabet size) are coprimes
     if gcd(m, 26) != 1:
-        return f'The m = {m} key is not coprimes with the number 26.'
+        return f'The m = {m} key is not coprimes with the alphabet size of 26.'
     
     ciphertext = clean_letter(ciphertext)
     ciphertext = ciphertext.upper()
@@ -78,8 +78,5 @@ def affine_decryption(ciphertext, m, b):
     plaintext_str = ''.join(plaintext)
 
     return plaintext_str
-
-print(affine_encryption('kripto', 7, 10))
-print(affine_decryption('czolne', 7, 10))
 
 
