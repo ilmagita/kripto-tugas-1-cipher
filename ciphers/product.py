@@ -1,4 +1,4 @@
-from functionList import *
+from .functionList import *
 
 def encrypt_vigenere(plainText,inputKey):
     key = ""
@@ -34,6 +34,8 @@ def encrypt_transposition(plainText,columnKey):
     matrix = []
     cipherText = ""
     plainText = clean_letter(plainText)
+    plainText = plainText.upper()
+
     
     for i in range(0, len(plainText), columnKey):
         substr = plainText[i:i+columnKey]
@@ -52,6 +54,9 @@ def decrypt_transposition(cipherText,columnKey):
     matrix = []
     plainText = ""
     cipherText = clean_letter(cipherText)
+    cipherText = cipherText.upper()
+
+    
     decryptKey = len(cipherText)//columnKey
     
     for i in range(0, len(cipherText), decryptKey):
