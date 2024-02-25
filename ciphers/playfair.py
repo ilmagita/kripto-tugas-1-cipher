@@ -1,9 +1,9 @@
 ## PLAYFAIR CYPHER
 
-from functionList import letter_to_integer as lti
-from functionList import integer_to_letter as itl
+from .functionList import letter_to_integer as lti
+from .functionList import integer_to_letter as itl
 from math import ceil
-from functionList import clean_letter
+from .functionList import clean_letter
 
 ## HELPER FUNCTIONS
 def str_to_playfair_key(string, ch_to_remove='J'):

@@ -1,4 +1,4 @@
-## VIGENERE APP GUI
+## PLAYFAIR APP GUI
 
 ## IMPORTS
 import sys
@@ -7,7 +7,7 @@ from PyQt5.QtWidgets import (
 )
 from PyQt5.uic import loadUi
 
-from ciphers.vigenere import (vigenere_encryption, vigenere_decryption)
+from ciphers.playfair import (playfair_encryption, playfair_decryption)
 from ciphers.functionList import (save_file)
 
 ## MAIN GUI PROGRAMS
@@ -17,7 +17,7 @@ class MainWindow(QMainWindow):
         super().__init__()
 
         # Load the UI file
-        loadUi('windows/vigenere_window.ui', self)
+        loadUi('windows/playfair_window.ui', self)
 
         # CONNECTION SLOTS
         self.input_type_combobox.currentIndexChanged.connect(self.on_input_type_combobox_plaintext_selected)
@@ -53,14 +53,14 @@ class MainWindow(QMainWindow):
         input_text = self.input_box.toPlainText()
         input_key = self.key_box.toPlainText()
 
-        output = vigenere_encryption(input_text, input_key)
+        output = playfair_encryption(input_text, input_key)
         self.output_box.setPlainText(output)
 
     def on_decrypt_button_clicked(self):
         input_text = self.input_box.toPlainText()
         input_key = self.key_box.toPlainText()
 
-        output = vigenere_decryption(input_text, input_key)
+        output = playfair_decryption(input_text, input_key)
         self.output_box.setPlainText(output)
 
     def on_save_button_clicked(self):
