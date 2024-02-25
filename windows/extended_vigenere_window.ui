@@ -7,7 +7,7 @@
     <x>0</x>
     <y>0</y>
     <width>800</width>
-    <height>609</height>
+    <height>697</height>
    </rect>
   </property>
   <property name="windowTitle">
@@ -48,7 +48,7 @@
       <widget class="QComboBox" name="input_type_combobox">
        <item>
         <property name="text">
-         <string>File (.txt)</string>
+         <string>File</string>
         </property>
        </item>
        <item>
@@ -65,7 +65,7 @@
        </property>
       </widget>
      </item>
-     <item row="3" column="1">
+     <item row="4" column="1">
       <spacer name="horizontalSpacer_4">
        <property name="orientation">
         <enum>Qt::Horizontal</enum>
@@ -78,17 +78,17 @@
        </property>
       </spacer>
      </item>
-     <item row="4" column="0">
+     <item row="5" column="0">
       <widget class="QLabel" name="label">
        <property name="text">
         <string>Input</string>
        </property>
       </widget>
      </item>
-     <item row="4" column="1">
+     <item row="5" column="1">
       <widget class="QPlainTextEdit" name="input_box"/>
      </item>
-     <item row="5" column="1">
+     <item row="6" column="1">
       <spacer name="horizontalSpacer_5">
        <property name="orientation">
         <enum>Qt::Horizontal</enum>
@@ -101,17 +101,17 @@
        </property>
       </spacer>
      </item>
-     <item row="6" column="0">
+     <item row="7" column="0">
       <widget class="QLabel" name="label_4">
        <property name="text">
         <string>Key</string>
        </property>
       </widget>
      </item>
-     <item row="6" column="1">
+     <item row="7" column="1">
       <widget class="QPlainTextEdit" name="key_box"/>
      </item>
-     <item row="7" column="1">
+     <item row="8" column="1">
       <spacer name="horizontalSpacer_3">
        <property name="orientation">
         <enum>Qt::Horizontal</enum>
@@ -124,7 +124,7 @@
        </property>
       </spacer>
      </item>
-     <item row="8" column="1">
+     <item row="9" column="1">
       <layout class="QHBoxLayout" name="horizontalLayout">
        <item>
         <widget class="QPushButton" name="encrypt_button">
@@ -142,7 +142,7 @@
        </item>
       </layout>
      </item>
-     <item row="10" column="1">
+     <item row="11" column="1">
       <spacer name="horizontalSpacer_2">
        <property name="orientation">
         <enum>Qt::Horizontal</enum>
@@ -155,20 +155,30 @@
        </property>
       </spacer>
      </item>
-     <item row="11" column="0">
+     <item row="12" column="0">
       <widget class="QLabel" name="label_2">
        <property name="text">
         <string>Output</string>
        </property>
       </widget>
      </item>
-     <item row="11" column="1">
+     <item row="12" column="1">
       <widget class="QPlainTextEdit" name="output_box"/>
      </item>
-     <item row="12" column="1">
+     <item row="13" column="1">
       <widget class="QPushButton" name="save_button">
        <property name="text">
         <string>Save Output as file</string>
+       </property>
+      </widget>
+     </item>
+     <item row="3" column="1">
+      <widget class="QLineEdit" name="file_name_box"/>
+     </item>
+     <item row="3" column="0">
+      <widget class="QLabel" name="label_5">
+       <property name="text">
+        <string>File name</string>
        </property>
       </widget>
      </item>
@@ -192,45 +202,6 @@
     </property>
     <property name="text">
      <string>Extended Vigenere Cypher Encryption and Decryption</string>
-    </property>
-   </widget>
-   <widget class="QLabel" name="label_5">
-    <property name="geometry">
-     <rect>
-      <x>490</x>
-      <y>550</y>
-      <width>54</width>
-      <height>19</height>
-     </rect>
-    </property>
-    <property name="text">
-     <string>Input Type</string>
-    </property>
-   </widget>
-   <widget class="QLabel" name="label_6">
-    <property name="geometry">
-     <rect>
-      <x>500</x>
-      <y>550</y>
-      <width>54</width>
-      <height>19</height>
-     </rect>
-    </property>
-    <property name="text">
-     <string>Input Type</string>
-    </property>
-   </widget>
-   <widget class="QLabel" name="label_7">
-    <property name="geometry">
-     <rect>
-      <x>490</x>
-      <y>550</y>
-      <width>54</width>
-      <height>19</height>
-     </rect>
-    </property>
-    <property name="text">
-     <string>Input Type</string>
     </property>
    </widget>
   </widget>
