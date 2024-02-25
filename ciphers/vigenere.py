@@ -1,11 +1,11 @@
 ## VIIGENERE CYPHER
 
-from functionList import letter_to_integer as lti
-from functionList import integer_to_letter as itl
-from functionList import clean_letter
+from .functionList import letter_to_integer as lti
+from .functionList import integer_to_letter as itl
+from .functionList import clean_letter
 
 ## ENCRYPTION FUNCTIONS
-def vignere_key(input_key, plaintext):
+def vigenere_key(input_key, plaintext):
     if len(input_key) < len(plaintext):
         key = ''
         j = 0
@@ -21,11 +21,11 @@ def vignere_key(input_key, plaintext):
 
     return key
 
-def vignere_encryption(plaintext='thisplaintext', input_key='sony'):
+def vigenere_encryption(plaintext='thisplaintext', input_key='sony'):
     plaintext = clean_letter(plaintext)
     plaintext = plaintext.upper()
 
-    key = vignere_key(input_key, plaintext)
+    key = vigenere_key(input_key, plaintext)
 
     plaintext_idx = [0 for i in range(len(plaintext))]
     key_idx = [0 for i in range(len(plaintext))]
@@ -44,11 +44,11 @@ def vignere_encryption(plaintext='thisplaintext', input_key='sony'):
     return ciphertext
 
 ## DECRYPTION FUNCTION
-def vignere_decryption(ciphertext='lvvqhzngfhrvl', input_key='sony'):
+def vigenere_decryption(ciphertext='lvvqhzngfhrvl', input_key='sony'):
     ciphertext = clean_letter(ciphertext)
     ciphertext = ciphertext.upper()
 
-    key = vignere_key(input_key, ciphertext)
+    key = vigenere_key(input_key, ciphertext)
 
     ciphertext_idx = [0 for i in range(len(ciphertext))]
     key_idx = [0 for i in range(len(ciphertext))]
@@ -66,6 +66,6 @@ def vignere_decryption(ciphertext='lvvqhzngfhrvl', input_key='sony'):
 
     return plaintext
 
-## MAIN PROGRAM
-print(vignere_encryption())
-print(vignere_decryption())
+# ## MAIN PROGRAM
+# print(vigenere_encryption())
+# print(vigenere_decryption())
