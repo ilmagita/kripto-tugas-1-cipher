@@ -4,6 +4,7 @@ def encrypt_vigenere(plainText,inputKey):
     key = ""
     cipherText = ""
     plainText = clean_letter(plainText)
+    inputKey = clean_letter(inputKey)
     plainText = plainText.upper()
     inputKey = inputKey.upper()
     
@@ -18,6 +19,7 @@ def encrypt_vigenere(plainText,inputKey):
 def decrypt_vigenere(cipherText,inputKey):
     key = ""
     plainText = ""
+    inputKey = clean_letter(inputKey)
     cipherText = clean_letter(cipherText)
     cipherText = cipherText.upper()
     inputKey = inputKey.upper()
