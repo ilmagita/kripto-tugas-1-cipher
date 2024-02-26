@@ -25,15 +25,21 @@ def decrypt_extended_vigenere(cipherText,inputKey):
     return(plainText)
 
 
+#p = read_binary_file('./foto.png')
+# a = read_binary_file('foto.png')
+#a = encrypt_extended_vigenere(p,'sony')
+#b = decrypt_extended_vigenere(a,'sony')
 
-#a = read_binary_file('foto.png')
-a = encrypt_extended_vigenere('thisplaintext','sony')
-b = decrypt_extended_vigenere(a,'sony')
+#print(p)
 
+# print(a)
+# print(b)
+# print(p)
 
-
-print(a)
-print(b)
+#if (p==b):
+    #print("UDah bener")
+#else:
+    #print("Belum")
 
 #save_file(a,'encrypted_foto.png')
 #save_file(b,'decrypted_foto.png')

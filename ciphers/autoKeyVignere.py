@@ -1,7 +1,8 @@
-from functionList import *
+from .functionList import *
 
 def encrypt_autoKeyVignere(plainText,inputKey):
     plainText = clean_letter(plainText)
+    inputKey = clean_letter(inputKey)
     plainText = plainText.upper()
     inputKey = inputKey.upper()
     
@@ -19,6 +20,7 @@ def encrypt_autoKeyVignere(plainText,inputKey):
 
 def decrypt_autoKeyVigenere(cipherText, inputKey):
     cipherText = clean_letter(cipherText)
+    inputKey = clean_letter(inputKey)
     cipherText = cipherText.upper()
     inputKey = inputKey.upper()
 
