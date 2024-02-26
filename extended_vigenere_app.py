@@ -30,8 +30,16 @@ class MainWindow(QMainWindow):
     def on_input_type_combobox_plaintext_selected(self, index):
         if index == 0:
             self.browse_button.show()
+            self.file_name_box.show()
+            self.label_5.show()
+            
+            self.input_box.hide()
+            self.label.hide()
+            
         else:
             self.browse_button.hide()
+            self.file_name_box.hide()
+            self.label_5.hide()
 
     def on_browse_button_clicked(self):
         # Open file dialog
@@ -44,10 +52,13 @@ class MainWindow(QMainWindow):
                 contents = file.read().decode('latin-1')
 
             # Set the content to the text box
-            self.input_box.setPlainText(contents)
+            
 
             # Set the text box to file name
             self.file_name_box.setText(os.path.basename(filename))
+            self.input_box.setPlainText("")
+           
+            
 
             # Close file dialog
             file_dialog.reject()
@@ -57,16 +68,51 @@ class MainWindow(QMainWindow):
     def on_encrypt_button_clicked(self):
         input_text = self.input_box.toPlainText()
         input_key = self.key_box.toPlainText()
-
-        output = encrypt_extended_vigenere(input_text, input_key)
-        self.output_box.setPlainText(output)
+        
+        
+        if input_text == "":
+            filename_full = self.file_name_box.text()
+            filename_ori = filename_full[:-4]
+            filename_type = filename_full[-4:]
+            with open(filename_full, 'rb') as file:
+                contents = file.read().decode('latin-1')
+                
+            output = encrypt_extended_vigenere(contents, input_key)
+            result = "".join(output)
+            save = save_file(result, f'output/{filename_ori}_encrypted{filename_type}')
+              
+        else:
+            output = encrypt_extended_vigenere(input_text, input_key)
+            result = "".join(output)
+            
+        
+        self.output_box.setPlainText(result)
+        
 
     def on_decrypt_button_clicked(self):
         input_text = self.input_box.toPlainText()
         input_key = self.key_box.toPlainText()
-
-        output = decrypt_extended_vigenere(input_text, input_key)
-        self.output_box.setPlainText(output)
+        
+        
+        if input_text == "":
+            filename_full = self.file_name_box.text()
+            filename_ori = filename_full[:-4]
+            filename_type = filename_full[-4:]
+            
+            with open(filename_full, 'rb') as file:
+                contents = file.read().decode('latin-1')
+                
+            output = decrypt_extended_vigenere(contents, input_key)
+            result = "".join(output)
+            save = save_file(result, f'output/{filename_ori}_decrypted{filename_type}')
+            
+        else:
+            output = decrypt_extended_vigenere(input_text, input_key)
+            result = "".join(output)
+            
+        
+        self.output_box.setPlainText(result)
+       
 
     def on_save_button_clicked(self):
         filename_full = self.file_name_box.text()
